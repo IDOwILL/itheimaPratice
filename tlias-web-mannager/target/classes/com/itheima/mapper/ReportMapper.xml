@@ -25,4 +25,32 @@
                 END) name,
             COUNT(*) value FROM emp GROUP BY gender
     </select>
+    <select id="studentDegreeData" resultType="java.util.Map">
+        SELECT
+            (CASE degree
+                 WHEN 1 THEN	'初中'
+                 WHEN 2 THEN	'高中'
+                 WHEN 3 THEN	'大专'
+                 WHEN 4 THEN	'本科'
+                 WHEN 5 THEN	'硕士'
+                 WHEN 6 THEN	'博士'
+                 ELSE '其他'
+                END) name,
+            COUNT(*) value FROM student GROUP BY degree
+    </select>
+    <select id="studentCountData" resultType="java.util.Map" parameterType="map">
+        SELECT
+        clazz.name AS clazzName,
+        COUNT(student.id) AS dataList,
+        CASE
+        <foreach collection="clazzList" item="clazzName" index="index" separator=" ">
+            WHEN clazz.name = #{clazzName} THEN #{dataList[index]}
+        </foreach>
+        ELSE 0
+        END AS dataValue
+        FROM student
+        LEFT JOIN clazz ON student.clazz_id = clazz.id
+        GROUP BY clazz.id, clazz.name
+    </select>
+
 </mapper>

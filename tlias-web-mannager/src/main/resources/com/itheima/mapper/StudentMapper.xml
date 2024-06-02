@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.StudentMapper">
+    <insert id="saveStudent">
+        insert into student(name, no, gender, phone, id_card, is_college, address, degree, graduation_date, clazz_id, create_time, update_time)
+        value (#{name},#{no},#{gender},#{phone},#{idCard},#{isCollege},#{address},#{degree},#{graduationDate},#{clazzId},now(),now())
+    </insert>
+    <update id="updateStudent">
+        update student<set>
+        <if test="name != null and name != ''">
+            name = #{name},
+        </if>
+        <if test="no != null and no != ''">
+            no = #{no},
+        </if>
+        <if test="gender != null">
+            gender = #{gender},
+        </if>
+        <if test="phone != null and phone != ''">
+            phone = #{phone},
+        </if>
+        <if test="idCard != null and idCard != ''">
+            id_card = #{idCard},
+        </if>
+        <if test="isCollege != null">
+            is_college = #{isCollege},
+        </if>
+        <if test="address != null and address != ''">
+            address = #{address},
+        </if>
+        <if test="degree != null">
+            degree = #{degree},
+        </if>
+        <if test="graduationDate != null">
+            graduation_date = #{graduationDate},
+        </if>
+        <if test="clazzId != null">
+            clazz_id = #{clazzId},
+        </if>
+        <if test="violationCount != null">
+            violation_count = #{violationCount},
+        </if>
+    </set>
+        where id=#{id}
+    </update>
+    <delete id="deleteByIds">
+        delete
+        from student
+        where id in
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+        #{id}
+        </foreach>
+    </delete>
+
+    <select id="queryPage" resultType="com.itheima.pojo.Student">
+        select s.*, c.name clazzName
+        from student s
+                 left join tlias.clazz c on c.id = s.clazz_id
+        <where>
+            <if test="name!=null and name!=''">
+             and   s.name=#{name}
+            </if>
+            <if test="degree!=null and degree!=''">
+                and s.degree=#{degree}
+            </if>
+            <if test="clazzId!=null and clazzId!=''">
+               and s.clazz_id=#{clazzId}
+            </if>
+        </where>
+        order by update_time asc
+    </select>
+    <select id="queryInfoById" resultType="com.itheima.pojo.Student">
+        select s.*,c.name from student s left join tlias.clazz c on c.id = s.clazz_id WHERE s.id=#{id}
+    </select>
+</mapper>

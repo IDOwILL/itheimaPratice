@@ -2,6 +2,7 @@ package com.itheima.controller;
 
 import com.itheima.pojo.JobOption;
 import com.itheima.pojo.Result;
+import com.itheima.pojo.StudentOption;
 import com.itheima.service.ReportService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,17 @@ public class ReportController {
     public Result empGenderData() {
         List<Map> mapList = reportService.empGenderData();
         return Result.success(mapList);
+    }
+
+    @GetMapping("/studentDegreeData")
+    public Result studentDegreeData() {
+        List<Map> mapList = reportService.studentDegreeData();
+        return Result.success(mapList);
+    }
+
+    @GetMapping("/studentCountData")
+    public Result studentCountData() {
+        StudentOption studentOption = reportService.studentCountData();
+        return Result.success(studentOption);
     }
 }
