@@ -93,6 +93,12 @@ public class EmpServiceImpl implements EmpService {
         saveEmpExpr(exprList, empId);
     }
 
+    @Override
+    public List<Emp> queryList() {
+        List<Emp> empList=empMapper.queryList();
+        return empList;
+    }
+
 
     /**
      * 保存员工经历公用方法

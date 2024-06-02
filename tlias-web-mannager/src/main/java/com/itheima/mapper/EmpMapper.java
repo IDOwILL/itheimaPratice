@@ -36,4 +36,6 @@ public interface EmpMapper {
      * @param emp emp
      */
     void updateEmp(Emp emp);
+
+    List<Emp> queryList();
 }

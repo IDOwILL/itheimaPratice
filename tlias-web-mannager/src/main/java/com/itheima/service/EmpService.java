@@ -18,4 +18,6 @@ public interface EmpService {
     Emp queryById(Integer id);
 
     void updateEmp(Emp emp);
+
+    List<Emp> queryList();
 }

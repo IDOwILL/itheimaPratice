@@ -67,6 +67,11 @@ public class EmpController {
         empService.updateEmp(emp);
         return Result.success();
     }
-
+    @GetMapping("/list")
+    //这个接口好像没有作用，离谱
+    public Result queryList() {
+        List<Emp> empList=empService.queryList();
+        return Result.success(empList);
+    }
 
 }
