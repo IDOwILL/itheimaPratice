@@ -11,6 +11,6 @@ import java.util.Map;
 public interface ReportMapper {
     List<Job> queryJob();
 
-    //@MapKey("gender")
+    //@MapKey("gender")如果直接是map集合的话，这个还是挺有用的
     List<Map> empGenderData();
 }

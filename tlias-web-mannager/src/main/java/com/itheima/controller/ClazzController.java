@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.itheima.mapper.ClazzMapper;
 import com.itheima.pojo.Clazz;
 import com.itheima.pojo.ClazzQueryParam;
 import com.itheima.pojo.PageBean;
@@ -7,10 +8,8 @@ import com.itheima.pojo.Result;
 import com.itheima.service.ClazzService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,9 +22,10 @@ import java.util.List;
 public class ClazzController {
     @Autowired
     private ClazzService clazzService;
+
     @GetMapping
     public Result queryString(ClazzQueryParam clazzQueryParam) {
-        PageBean pageBean=clazzService.queryString(clazzQueryParam);
+        PageBean pageBean = clazzService.queryString(clazzQueryParam);
         log.info(pageBean.toString());
         return Result.success(pageBean);
         //分页查询都是PageBean对象
@@ -35,7 +35,35 @@ public class ClazzController {
     @GetMapping("/list")
     //这个接口好像没有作用，离谱,更离谱的是这tm的是emp的，cao
     public Result queryList() {
-        List<Clazz> clazzList=clazzService.queryList();
+        List<Clazz> clazzList = clazzService.queryList();
         return Result.success(clazzList);
     }
+
+    @DeleteMapping("/{id}")
+    public Result deleteById(@PathVariable Integer id) {
+        clazzService.deleteById(id);
+        return Result.success();
+    }
+
+    @PostMapping
+    public Result saveClazz(@RequestBody Clazz clazz) {//JSOn格式用@RequestBody
+
+        clazzService.saveClazz(clazz);
+        return Result.success();
+    }
+
+    //修改前的查询回显
+    @GetMapping("/{id}")
+    public Result queryInfoById(@PathVariable Integer id) {
+        Clazz clazz=clazzService.queryInfoById(id);
+        log.info(clazz.toString());
+        return Result.success(clazz);
+    }
+//修改班级
+    @PutMapping
+    public Result updateClazz(@RequestBody  Clazz clazz) {
+        clazzService.updateClazz(clazz);
+        return Result.success();
+    }
+
 }

@@ -3,6 +3,27 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itheima.mapper.ClazzMapper">
+    <insert id="saveClazz">
+        insert into clazz(name, room, begin_date, end_date, master_id, subject, create_time, update_time)
+        VALUES (#{name}, #{room}, #{beginDate}, #{endDate}, #{masterId}, #{subject}, now(), now())
+    </insert>
+    <update id="updateClazz">
+        update clazz
+        <set>
+            name=#{name},
+           <if test="room!=null and room!=''">
+               room="132",
+           </if>
+            subject= #{subject},
+            <if test="masterId!=null and masterId!=''">
+                master_id=#{masterId},
+            </if>
+            end_date=#{endDate},
+            begin_date=#{beginDate},
+            update_time=now(),
+        </set>
+        where id=11;
+    </update>
 
     <select id="queryString" resultType="com.itheima.pojo.Clazz">
         select t1.*,
