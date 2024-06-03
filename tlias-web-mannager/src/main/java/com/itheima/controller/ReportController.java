@@ -45,7 +45,7 @@ public class ReportController {
 
     @GetMapping("/studentCountData")
     public Result studentCountData() {
-        StudentOption studentOption = reportService.studentCountData();
-        return Result.success(studentOption);
+        Map<String, Object> data=reportService.getClazzAndStudentData();
+        return Result.success(data);
     }
 }

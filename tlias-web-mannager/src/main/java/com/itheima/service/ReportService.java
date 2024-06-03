@@ -13,5 +13,6 @@ public interface ReportService {
 
     List<Map> studentDegreeData();
 
-    StudentOption studentCountData();
+
+    Map<String, Object> getClazzAndStudentData();
 }

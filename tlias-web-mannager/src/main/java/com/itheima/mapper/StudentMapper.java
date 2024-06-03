@@ -22,4 +22,11 @@ public interface StudentMapper {
 
     @Update("update student set violation_count=violation_count+1,violation_score=#{score} where id=#{id}")
     void violation(Integer id, Integer score);
+
+    /**
+     * 按clazz id查询学生人数
+     *
+     * @return 对象
+     */
+    Integer queryStudentCountByClazzId(int clazzId);
 }

@@ -25,4 +25,8 @@ public interface ClazzMapper {
     Clazz queryInfoById(Integer id);
 
     void updateClazz(Clazz clazz);
+    @Select("select name from clazz;")
+    List<String> queryAllClazzNames();
+    @Select("SELECT id from clazz where name=#{clazzName}")
+    int getClazzIdByName(String clazzName);
 }

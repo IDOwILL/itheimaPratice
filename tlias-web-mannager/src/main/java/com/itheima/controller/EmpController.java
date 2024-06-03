@@ -68,7 +68,7 @@ public class EmpController {
         return Result.success();
     }
     @GetMapping("/list")
-    //这个接口好像没有作用，离谱
+    //查询全部员工
     public Result queryList() {
         List<Emp> empList=empService.queryList();
         return Result.success(empList);
