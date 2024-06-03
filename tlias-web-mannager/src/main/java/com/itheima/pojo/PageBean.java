@@ -15,6 +15,5 @@ import java.util.Objects;
 @NoArgsConstructor
 public class PageBean {
     private Long total;
-
     private Object rows;
 }

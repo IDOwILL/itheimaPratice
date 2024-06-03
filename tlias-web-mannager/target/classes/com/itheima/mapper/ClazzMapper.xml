@@ -12,7 +12,7 @@
         <set>
             name=#{name},
            <if test="room!=null and room!=''">
-               room="132",
+               room=#{room},
            </if>
             subject= #{subject},
             <if test="masterId!=null and masterId!=''">
@@ -22,18 +22,17 @@
             begin_date=#{beginDate},
             update_time=now(),
         </set>
-        where id=11;
+        where id=#{id};
     </update>
 
     <select id="queryString" resultType="com.itheima.pojo.Clazz">
         select t1.*,
         t2.name masterName
-
         from clazz t1
         left join emp t2 on t1.master_id = t2.id
         <where>
             <if test="name!=null and name!=''">
-                t1.name=#{name}
+                t1.name like CONCAT('%',#{name},'%')
             </if>
             <if test="begin!=null and end!=null">
                 t1.end_date between #{begin} and #{end}
