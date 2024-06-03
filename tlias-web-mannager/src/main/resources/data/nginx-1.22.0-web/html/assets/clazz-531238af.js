@@ -1,1 +1,0 @@
-import{r as s}from"./request-24d06a0f.js";const l=(e,a,t,c,p)=>s.get(`/clazzs?begin=${e}&end=${a}&name=${t}&page=${c}&pageSize=${p}`),o=e=>s.post("/clazzs",e),i=e=>s.get(`/clazzs/${e}`),n=e=>s.put("/clazzs",e),r=e=>s.delete(`/clazzs/${e}`),d=()=>s.get("/clazzs/list");export{i as a,o as b,d as c,r as d,l as q,n as u};

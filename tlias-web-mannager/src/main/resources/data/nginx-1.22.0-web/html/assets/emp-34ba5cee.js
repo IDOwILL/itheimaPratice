@@ -1,1 +1,0 @@
-import{r as s}from"./request-24d06a0f.js";const d=(e,p,t,a,n,o)=>s.get(`/emps?begin=${e}&end=${p}&gender=${t}&name=${a}&page=${n}&pageSize=${o}`),r=e=>s.post("/emps",e),c=e=>s.get(`/emps/${e}`),g=e=>s.put("/emps",e),m=e=>s.delete(`/emps?ids=${e}`),u=()=>s.get("/emps/list"),A=e=>s.put("/emps/changePassword",e);export{d as a,c as b,r as c,m as d,A as e,u as q,g as u};
