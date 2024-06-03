@@ -2,13 +2,11 @@ package com.itheima.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.itheima.exception.BussinessException;
 import com.itheima.mapper.EmpExprMapper;
-import com.itheima.mapper.EmpLogMapper;
 import com.itheima.mapper.EmpMapper;
 import com.itheima.pojo.*;
 import com.itheima.service.EmpExprService;
-import com.itheima.service.EmpLogService;
+import com.itheima.service.LogService;
 import com.itheima.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +17,6 @@ import org.springframework.util.CollectionUtils;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
 
 @Service
 @Slf4j
@@ -31,7 +28,7 @@ public class EmpServiceImpl implements EmpService {
     @Autowired
     private EmpExprService empExprService;
     @Autowired
-    private EmpLogService empLogService;
+    private LogService logService;
 
     @Override
     public PageBean queryPage(Integer page, Integer pageSize) {
@@ -67,7 +64,7 @@ public class EmpServiceImpl implements EmpService {
             EmpLog empLog = new EmpLog();
             empLog.setOperateTime(LocalDateTime.now());
             empLog.setInfo("插入员工信息: " + emp);
-            empLogService.insertLog(empLog);
+            logService.insertLog(empLog);
         }
     }
 

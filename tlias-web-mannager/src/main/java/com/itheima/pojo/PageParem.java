@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentQueryParam extends PageParem{
-    private String name;
-    private Integer degree;
-    private Integer clazzId;
-
+public class PageParem {
+    private Integer page=1;
+    private Integer pageSize=10;
 }

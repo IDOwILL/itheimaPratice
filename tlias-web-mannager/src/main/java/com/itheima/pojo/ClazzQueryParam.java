@@ -11,11 +11,9 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClazzQueryParam {
+public class ClazzQueryParam extends PageParem{
     private String name;
     private LocalDate begin;
     private LocalDate end;
-    private Integer page;
 
-    private Integer pageSize;
 }
