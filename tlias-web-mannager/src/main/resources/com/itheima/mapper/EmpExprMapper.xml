@@ -11,6 +11,7 @@
                 #{expr.empId},#{expr.begin},#{expr.end},#{expr.company},#{expr.job}
             </foreach>)
     </insert>
+
     <delete id="deleteByIds">
         delete from emp_expr where emp_expr.emp_id in
         <foreach collection="ids" item="empId" open="(" close=")" separator=",">
