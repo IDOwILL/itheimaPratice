@@ -27,6 +27,13 @@ public interface ClazzMapper {
     void updateClazz(Clazz clazz);
     @Select("select name from clazz;")
     List<String> queryAllClazzNames();
+
+    /**
+     * 按名称获取clazz id
+     *
+     * @param clazzName clazz名称
+     * @return int
+     */
     @Select("SELECT id from clazz where name=#{clazzName}")
     int getClazzIdByName(String clazzName);
 }

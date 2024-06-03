@@ -41,6 +41,12 @@ public class DeptServiceImpl implements DeptService {
         deptMapper.saveDept(name);
     }
 
+    /**
+     * 按id获取信息
+     *
+     * @param id 主键
+     * @return 部门
+     */
     @Override
     public Dept getInfoById(Integer id) {
        Dept dept= deptMapper.getInfoById(id);
@@ -52,6 +58,4 @@ public class DeptServiceImpl implements DeptService {
         dept.setUpdateTime(LocalDateTime.now());
         deptMapper.updateById(dept);
     }
-
-
 }
