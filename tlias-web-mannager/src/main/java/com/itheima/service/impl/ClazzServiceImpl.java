@@ -31,10 +31,8 @@ public class ClazzServiceImpl implements ClazzService {
             LocalDate endDate = clazz.getEndDate();
             LocalDate beginDate = clazz.getBeginDate();
             if (endDate != null && endDate.isBefore(now)) clazz.setStatus("已结课");//大于结束时间已结课
-            if (endDate != null && endDate.isAfter(now) && beginDate != null && beginDate.isBefore(now))
-                clazz.setStatus("已开班");//比结束早，比开始晚视为已开班
-            if (endDate != null && endDate.isEqual(now) || beginDate != null && beginDate.isEqual(now))
-                clazz.setStatus("已开班");//时间相等为已开班
+            if (endDate != null && endDate.isAfter(now) && beginDate != null && beginDate.isBefore(now)) clazz.setStatus("已开班");//比结束早，比开始晚视为已开班
+            if (endDate != null && endDate.isEqual(now) || beginDate != null && beginDate.isEqual(now)) clazz.setStatus("已开班");//时间相等为已开班
             if (beginDate != null && beginDate.isAfter(now)) clazz.setStatus("未开班");//比开始时间早则未开班
         });
         return new PageBean(clazzList.getTotal(), clazzList.getResult());
