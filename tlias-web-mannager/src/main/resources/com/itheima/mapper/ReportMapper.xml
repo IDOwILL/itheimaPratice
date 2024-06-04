@@ -39,6 +39,7 @@
             COUNT(*) value FROM student GROUP BY degree
     </select>
     <select id="studentCountData" resultType="java.util.Map" parameterType="map">
+        <!--    废稿-->
         SELECT
         clazz.name AS clazzName,
         COUNT(student.id) AS dataList,
