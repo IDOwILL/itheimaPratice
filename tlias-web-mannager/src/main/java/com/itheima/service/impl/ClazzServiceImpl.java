@@ -51,6 +51,11 @@ public class ClazzServiceImpl implements ClazzService {
         return clazzMapper.queryList();
     }
 
+    /**
+     * 按id删除班级
+     *
+     * @param id 主键
+     */
     @Transactional
     @Override
     public void deleteById(Integer id) {
