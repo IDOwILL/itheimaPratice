@@ -86,6 +86,8 @@
     <select id="queryInfoById" resultType="com.itheima.pojo.Student">
         select s.*,c.name from student s left join tlias.clazz c on c.id = s.clazz_id WHERE s.id=#{id}
     </select>
+<!--    select c.name clazzList , count(*) dataList-->
+<!--    from clazz c left join student s on c.id = s.clazz_id group by c.name-->
     <select id="queryStudentCountByClazzId" resultType="java.lang.Integer">
         select count(*) from student where clazz_id=#{clazzId}
     </select>
