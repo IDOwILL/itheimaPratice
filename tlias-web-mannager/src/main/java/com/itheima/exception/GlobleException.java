@@ -18,8 +18,12 @@ public class GlobleException {
     @ExceptionHandler(DuplicateKeyException.class)
     public Result exception(DuplicateKeyException e) {
         log.info("用户输入违反数据库唯一性");
-        if (e.getMessage().contains("phone")) return Result.error("手机号重复");
+        e.printStackTrace();
+        if (e.getMessage().contains("for key 'student.phone'")) return Result.error("手机号重复");
+        if (e.getMessage().contains("for key 'student.no'") )return Result.error("学号重复");
+        if (e.getMessage().contains("for key 'clazz.name'") )return Result.error("班级名称重复");
         return Result.error("数据库错误，请反馈，谢谢");
+
     }
 //只要违反了数据库的唯一性约束，Spring框架就会抛出DuplicateKeyException。
     @ExceptionHandler(Exception.class)
@@ -31,6 +35,7 @@ public class GlobleException {
     @ExceptionHandler(DataIntegrityViolationException.class)
     public Result exception(DataIntegrityViolationException e){
         log.info("用户输入超出范围");
+        e.printStackTrace();
         return Result.error("数值过大，请重新输入");
     }
 

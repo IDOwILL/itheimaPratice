@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="tlias@localhost" uuid="5aa841ad-575a-4713-b0fb-20e46235fb39">
+    <data-source source="LOCAL" name="tlias@localhost" uuid="52c0d165-6f14-4ab4-85fd-74685aa64a9a">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <remarks>tlais</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/tlias</jdbc-url>
       <jdbc-additional-properties>

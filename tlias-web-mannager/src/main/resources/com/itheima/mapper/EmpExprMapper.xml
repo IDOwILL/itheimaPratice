@@ -6,10 +6,10 @@
 
     <insert id="saveEmpExpr">
         insert into tlias.emp_expr(emp_id, begin, end, company, job)
-        VALUES (
+        VALUES
             <foreach collection="empList" item="expr" separator=",">
-                #{expr.empId},#{expr.begin},#{expr.end},#{expr.company},#{expr.job}
-            </foreach>)
+                ( #{expr.empId},#{expr.begin},#{expr.end},#{expr.company},#{expr.job})
+            </foreach>
     </insert>
 
     <delete id="deleteByIds">
