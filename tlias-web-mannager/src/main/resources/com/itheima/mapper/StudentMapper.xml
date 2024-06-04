@@ -45,6 +45,18 @@
     </set>
         where id=#{id}
     </update>
+    <update id="violation">
+        update student
+        <set>
+            <if test="score	&gt;=0">
+                violation_count=violation_count + 1,
+            </if>
+            violation_score=violation_score + #{score}
+
+        </set>
+        where id = #{id}
+
+    </update>
     <delete id="deleteByIds">
         delete
         from student

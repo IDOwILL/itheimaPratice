@@ -21,7 +21,6 @@ public interface StudentMapper {
 
     void updateStudent(Student student);
 
-    @Update("update student set violation_count=violation_count+1,violation_score=violation_score+#{score} where id=#{id}")
     void violation(Integer id, Integer score);
 
     /**
