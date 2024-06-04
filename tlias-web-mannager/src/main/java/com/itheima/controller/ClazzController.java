@@ -31,9 +31,8 @@ public class ClazzController {
         //分页查询都是PageBean对象
     }
 
-    //这里报错类型转换异常是因为没有list方法，刷新会自动调用list方法
+    //这里报错类型转换异常是因为没有list方法，刷新会自动调用list方法，查询全部班级
     @GetMapping("/list")
-    //这个接口好像没有作用，离谱,更离谱的是这tm的是emp的，cao
     public Result queryList() {
         List<Clazz> clazzList = clazzService.queryList();
         return Result.success(clazzList);
