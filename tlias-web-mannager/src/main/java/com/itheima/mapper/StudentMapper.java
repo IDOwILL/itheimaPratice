@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.itheima.pojo.Student;
 import com.itheima.pojo.StudentQueryParam;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
@@ -29,4 +30,7 @@ public interface StudentMapper {
      * @return 对象
      */
     Integer queryStudentCountByClazzId(int clazzId);
+
+    @Select("select count(*) from student where clazz_id=#{id}")
+    Integer counterById(Integer id);
 }
