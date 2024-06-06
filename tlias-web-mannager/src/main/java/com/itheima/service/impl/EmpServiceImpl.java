@@ -96,6 +96,12 @@ public class EmpServiceImpl implements EmpService {
         return empList;
     }
 
+    @Override
+    public LoginInfo login(Emp emp) {
+        LoginInfo loginInfo=empMapper.login(emp);
+        return loginInfo;
+    }
+
 
     /**
      * 保存员工经历公用方法

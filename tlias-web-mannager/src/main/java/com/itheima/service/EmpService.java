@@ -2,6 +2,7 @@ package com.itheima.service;
 
 import com.itheima.pojo.Emp;
 import com.itheima.pojo.EmpQueryParam;
+import com.itheima.pojo.LoginInfo;
 import com.itheima.pojo.PageBean;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface EmpService {
     void updateEmp(Emp emp);
 
     List<Emp> queryList();
+
+    LoginInfo login(Emp emp);
 }

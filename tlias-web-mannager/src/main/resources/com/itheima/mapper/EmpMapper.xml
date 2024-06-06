@@ -112,4 +112,7 @@
     <select id="queryList" resultType="com.itheima.pojo.Emp">
         select t1.*,t2.name deptName from emp t1 left join dept t2 on t1.dept_id = t2.id
     </select>
+    <select id="login" resultType="com.itheima.pojo.LoginInfo">
+        select * from emp where username=#{username} and password=#{password}
+    </select>
 </mapper>

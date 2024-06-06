@@ -3,6 +3,7 @@ package com.itheima.mapper;
 import com.github.pagehelper.Page;
 import com.itheima.pojo.Emp;
 import com.itheima.pojo.EmpQueryParam;
+import com.itheima.pojo.LoginInfo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -38,4 +39,6 @@ public interface EmpMapper {
     void updateEmp(Emp emp);
 
     List<Emp> queryList();
+
+    LoginInfo login(Emp emp);
 }
