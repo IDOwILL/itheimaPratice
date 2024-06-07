@@ -1,6 +1,7 @@
 package com.itheima.controller;
 
 
+import com.itheima.anno.Log;
 import com.itheima.pojo.Dept;
 import com.itheima.pojo.Result;
 import com.itheima.service.DeptService;
@@ -25,6 +26,7 @@ public class DeptController {
      * @return 后端统一返回结果
      * @throws IOException IOException
      */
+    @Log
     @GetMapping
     public Result selectAll() throws IOException {
         List<Dept> list = deptService.getAll();
@@ -78,6 +80,7 @@ public class DeptController {
      * @param dept 部门对象
      * @return 后端统一返回结果
      */
+    @Log
     @PutMapping
     public Result updateById(@RequestBody Dept dept) {
         deptService.updateById(dept);

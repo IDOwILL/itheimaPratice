@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@Aspect
+//@Aspect
 public class MyAspect1 {
     @Pointcut("execution(* com.itheima.service.*.*(..))")
     public void pt() {

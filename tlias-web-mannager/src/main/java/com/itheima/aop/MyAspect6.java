@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-//@Aspect
+@Aspect
 public class MyAspect6 {
 
     //前置通知
@@ -24,4 +24,6 @@ public class MyAspect6 {
     public void after(){
         log.info("MyAspect6 -> after ...");
     }
+    //@annotation在代码比较乱的时候使用
+    //execution在代码比较工整的时候使用
 }
