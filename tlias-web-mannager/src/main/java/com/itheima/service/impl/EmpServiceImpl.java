@@ -6,7 +6,6 @@ import com.itheima.mapper.EmpExprMapper;
 import com.itheima.mapper.EmpMapper;
 import com.itheima.pojo.*;
 import com.itheima.service.EmpExprService;
-import com.itheima.service.EmpLogService;
 import com.itheima.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,8 +25,6 @@ public class EmpServiceImpl implements EmpService {
     private EmpExprMapper empExprMapper;
     @Autowired
     private EmpExprService empExprService;
-    @Autowired
-    private EmpLogService empLogService;
 
     @Override
     public PageBean queryPage(Integer page, Integer pageSize) {
@@ -51,21 +47,12 @@ public class EmpServiceImpl implements EmpService {
     @Transactional
     @Override
     public void saveEmp(Emp emp) {
-
-        try {
-
             empMapper.saveEmp(emp);
             Integer empId = emp.getId();
             System.out.println("emp.getId() = " + emp.getId());
             List<EmpExpr> exprList = emp.getExprList();
             log.info(exprList.toString());
             saveEmpExpr(exprList, empId);
-        } finally {
-            EmpLog empLog = new EmpLog();
-            empLog.setOperateTime(LocalDateTime.now());
-            empLog.setInfo("插入员工信息: " + emp);
-            empLogService.insertLog(empLog);
-        }
     }
 
 

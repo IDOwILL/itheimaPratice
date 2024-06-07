@@ -26,7 +26,7 @@ public class DeptController {
      * @return 后端统一返回结果
      * @throws IOException IOException
      */
-    @Log
+
     @GetMapping
     public Result selectAll() throws IOException {
         List<Dept> list = deptService.getAll();
@@ -41,6 +41,7 @@ public class DeptController {
      * @return 后端统一返回结果
      */
     @DeleteMapping
+    @Log
     public Result deleteDeptById(@RequestParam("id") Integer id) {
         log.info("删除部门 " + id);
         deptService.deleteDeptById(id);
@@ -54,6 +55,7 @@ public class DeptController {
      * @return 后端统一返回结果
      */
     @PostMapping
+    @Log
     public Result saveDept(@RequestBody Dept dept) {
         deptService.saveDept(dept);
         log.info("新增部门" + dept);

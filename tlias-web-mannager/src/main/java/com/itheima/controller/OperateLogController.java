@@ -3,20 +3,18 @@ package com.itheima.controller;
 import com.itheima.pojo.PageBean;
 import com.itheima.pojo.PageParem;
 import com.itheima.pojo.Result;
-import com.itheima.service.EmpLogService;
-import com.itheima.service.LogService;
-import lombok.extern.java.Log;
+import com.itheima.service.OperateLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class LogController {
+public class OperateLogController {
     @Autowired
-    private LogService logService;
+    private OperateLogService operateLogService;
     @RequestMapping("/log/page")
     public Result queryLog(PageParem param) {
-        PageBean pageBean = logService.queryLog(param);
+        PageBean pageBean = operateLogService.queryLog(param);
         return Result.success(pageBean);
     }
 }
