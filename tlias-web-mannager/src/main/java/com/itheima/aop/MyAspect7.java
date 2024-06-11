@@ -17,14 +17,17 @@ import java.util.Arrays;
  */
 @Slf4j
 @Component
-//@Aspect
+@Aspect
 public class MyAspect7 {
 
     @Pointcut("@annotation(com.itheima.anno.Log)")
     private void pt(){}
-   
+       @Before("pt()")
+    public void before(JoinPoint joinPoint){
+        log.info(joinPoint.getSignature().getName() + "dept對象啓動了");
+    }
     //前置通知
-    @Before("pt()")
+   /* @Before("pt()")
     public void before(JoinPoint joinPoint){
         log.info(joinPoint.getSignature().getName() + " MyAspect7 -> before ...");
     }
@@ -55,5 +58,6 @@ public class MyAspect7 {
         log.info("目标方法返回值：{}", returnValue);
 
         return returnValue;
-    }
+    }*/
+
 }

@@ -8,11 +8,9 @@ import com.itheima.pojo.JobOption;
 import com.itheima.pojo.StudentOption;
 import com.itheima.service.ReportService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

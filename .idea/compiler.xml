@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="tlias-web-mannager" />
+        <module name="tlias-pojo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />

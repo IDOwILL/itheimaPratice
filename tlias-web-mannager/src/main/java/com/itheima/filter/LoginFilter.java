@@ -2,15 +2,13 @@ package com.itheima.filter;
 
 import com.itheima.util.JwtUtils;
 import jakarta.servlet.*;
-import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
-@WebFilter(urlPatterns = "/*")
+//@WebFilter(urlPatterns = "/*")
 public class LoginFilter implements Filter {
 
     @Override

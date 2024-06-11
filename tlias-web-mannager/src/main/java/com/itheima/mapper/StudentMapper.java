@@ -5,7 +5,6 @@ import com.itheima.pojo.Student;
 import com.itheima.pojo.StudentQueryParam;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
