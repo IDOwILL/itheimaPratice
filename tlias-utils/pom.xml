@@ -7,11 +7,10 @@
         <groupId>com.itheima</groupId>
         <artifactId>tlias-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../tlias-parent/pom.xml</relativePath>
     </parent>
-    <groupId>com.itheima</groupId>
     <artifactId>tlias-utils</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>

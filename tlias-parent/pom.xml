@@ -44,4 +44,18 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+<!--    上传到私服的pom-->
+   <!-- <distributionManagement>
+        &lt;!&ndash; release版本的发布地址 &ndash;&gt;
+        <repository>
+            <id>maven-releases</id>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+
+        &lt;!&ndash; snapshot版本的发布地址 &ndash;&gt;
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>-->
 </project>
